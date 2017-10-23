@@ -5,6 +5,7 @@
 #include <fstream>
 #include <algorithm>
 #include <utility>
+#include <unordered_map>
 
 using namespace std;
 
@@ -41,7 +42,7 @@ void find_anagrams(map<string, vector<string>>& anagrams, ifstream& file) {
   }
 }
 
-void find_anagrams_no_sorting(map<int, vector<string>>& anagrams, ifstream& file) {
+void find_anagrams_no_sorting(unordered_map<int, vector<string>>& anagrams, ifstream& file) {
   unsigned char primes[26] = {5,71,79,19,2,83,31,43,11,53,37,23,41,3,13,73,101,17,29,7,59,47,61,97,89,67};
   string word;
   unsigned int word_value = 1;
@@ -75,7 +76,7 @@ int main(int argc, char *argv[]) {
 
   //create map of sorted characters in word to vector of the words
   //maybe map to pair of vector, # of words
-  map<int, vector<string>> anagrams;
+  unordered_map<int, vector<string>> anagrams;
   
   //open the file
   //maybe mmap? Don't think there's a need to if every line only contains a single word
